@@ -9,6 +9,3 @@ Resources:
       AllocatedStorage: 5
       MasterUsername: admin
       MasterUserPassword: admin
-      DBSubnetGroupName: mysubnetgroup
-      VPCSecurityGroups:
-        - mysecuritygroup

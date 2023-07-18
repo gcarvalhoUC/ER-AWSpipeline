@@ -8,4 +8,4 @@ Resources:
       Engine: MySQL
       AllocatedStorage: 5
       MasterUsername: admin
-      MasterUserPassword: admin
+      MasterUserPassword: admin1234567

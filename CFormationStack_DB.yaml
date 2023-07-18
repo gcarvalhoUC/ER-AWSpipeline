@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  MyDatabase:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBName: tpch
+      DBInstanceClass: db.t2.micro
+      Engine: MySQL
+      AllocatedStorage: 5
+      MasterUsername: admin
+      MasterUserPassword: admin
+      DBSubnetGroupName: mysubnetgroup
+      VPCSecurityGroups:
+        - mysecuritygroup

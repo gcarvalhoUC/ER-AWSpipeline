@@ -4,51 +4,13 @@
     "MyDatabase": {
       "Type": "AWS::RDS::DBInstance",
       "Properties": {
-        "DBName": "mydatabase",
+        "DBName": "tpchUsecase",
         "DBInstanceClass": "db.t2.micro",
         "Engine": "MySQL",
         "AllocatedStorage": 5,
-        "MasterUsername": "myusername",
-        "MasterUserPassword": "mypassword",
-        "DBSubnetGroupName": "mysubnetgroup",
-        "VPCSecurityGroups": [
-          "mysecuritygroup"
-        ],
-        "DBParameterGroupName": "default.mysql5.7",
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "MyDatabase"
-          }
-        ]
+        "MasterUsername": "admin",
+        "MasterUserPassword": "admin1234567"
       }
-    },
-    "MyDatabaseSchema": {
-      "Type": "AWS::RDS::DBSchema",
-      "Properties": {
-        "DBName": "mydatabase",
-        "Schema": {
-          "Tables": [
-            {
-              "Name": "MyTable",
-              "Columns": [
-                {
-                  "Name": "id",
-                  "Type": "int"
-                },
-                {
-                  "Name": "name",
-                  "Type": "string"
-                },
-                {
-                  "Name": "age",
-                  "Type": "int"
-                }
-              ]
-            }
-          ]
-        }
-      }
-    }
+    } 
   }
 }

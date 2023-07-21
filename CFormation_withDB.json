@@ -6,7 +6,7 @@
       "Properties": {
         "DBName": "tpchUsecase",
         "DBInstanceClass": "db.t2.micro",
-        "Engine": "postgres",
+        "Engine": "mysql",
         "AllocatedStorage": 5,
         "MasterUsername": "admin",
         "MasterUserPassword": "admin1234567"

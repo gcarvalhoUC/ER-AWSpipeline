@@ -6,11 +6,19 @@
       "Properties": {
         "DBName": "tpchUsecase",
         "DBInstanceClass": "db.t2.micro",
-        "Engine": "postgres",
+        "Engine": "MySQL",
         "AllocatedStorage": 5,
         "MasterUsername": "admin",
         "MasterUserPassword": "admin1234567"
       }
-    } 
+    },
+    "MySQLFile": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "erplus-sql",
+        "ObjectKey": "erplus.sql",
+      },
+      "DependsOn" : "MyDatabase"
+    }
   }
 }

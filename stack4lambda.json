@@ -1,0 +1,26 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "MyLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "ZipFile": "lambda.py"
+        },
+        "Handler": "lambda_handler",
+        "Runtime": "python3.8",
+        "Role": "arn:aws:iam::100326269900:role/MyLambdaRole"
+      }
+    },
+    "MyCustomResource": {
+      "Type": "AWS::CloudFormation::CustomResource",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": ["MyLambdaFunction", "Arn"]
+        },
+        "SqlFileName": "erplus.sql",
+        "RdsInstanceId": "erplus-withdb-rdsinstance-jpwfterttovm"
+      }
+    }
+  }
+}

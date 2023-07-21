@@ -1,0 +1,38 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters": {
+    "MyIP": {
+      "Type": "String",
+      "Description": "Your computer's public IP address in CIDR notation"
+    }
+  },
+  "Resources": {
+    "MyDatabase": {
+      "Type": "AWS::RDS::DBInstance",
+      "Properties": {
+        "DBName": "tpchUsecase",
+        "DBInstanceClass": "db.t2.micro",
+        "Engine": "MySQL",
+        "AllocatedStorage": 5,
+        "MasterUsername": "admin",
+        "MasterUserPassword": "admin1234567"
+      }
+    },
+    "MySecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "My security group",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 0,
+            "ToPort": 65535,
+            "CidrIp": {
+              "Ref": "MyIP"
+            }
+          }
+        ]
+      }
+    } 
+  }
+}

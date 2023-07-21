@@ -10,7 +10,6 @@ CREATE TABLE parts (
 	comment	 varchar(23),
 	PRIMARY KEY(partkey)
 );
-
 CREATE TABLE suppliers (
 	suppkey bigint AUTO_INCREMENT,
 	name	 text,
@@ -20,7 +19,6 @@ CREATE TABLE suppliers (
 	comment varchar(101),
 	PRIMARY KEY(suppkey)
 );
-
 CREATE TABLE partsupp (
 	availqty		 int,
 	supplycost	 double precision,
@@ -29,7 +27,6 @@ CREATE TABLE partsupp (
 	parts_partkey	 bigint,
 	PRIMARY KEY(suppliers_suppkey,parts_partkey)
 );
-
 CREATE TABLE customers (
 	custkey	 bigint AUTO_INCREMENT,
 	name	 varchar(25),
@@ -40,7 +37,6 @@ CREATE TABLE customers (
 	comment	 varchar(117),
 	PRIMARY KEY(custkey)
 );
-
 CREATE TABLE orders (
 	orderkey	bigint	 AUTO_INCREMENT,
 	orderstatus	 text,
@@ -53,7 +49,6 @@ CREATE TABLE orders (
 	customers_custkey bigint NOT NULL,
 	PRIMARY KEY(orderkey)
 );
-
 CREATE TABLE lineitems (
 	linenumber		 int,
 	quantity			 double precision,
@@ -73,7 +68,6 @@ CREATE TABLE lineitems (
 	partsupp_parts_partkey	 bigint,
 	PRIMARY KEY(orders_orderkey,partsupp_suppliers_suppkey,partsupp_parts_partkey)
 );
-
 ALTER TABLE partsupp ADD CONSTRAINT partsupp_fk1 FOREIGN KEY (suppliers_suppkey) REFERENCES suppliers(suppkey);
 ALTER TABLE partsupp ADD CONSTRAINT partsupp_fk2 FOREIGN KEY (parts_partkey) REFERENCES parts(partkey);
 ALTER TABLE orders ADD CONSTRAINT orders_fk1 FOREIGN KEY (customers_custkey) REFERENCES customers(custkey);
